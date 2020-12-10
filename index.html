@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset=utf-8>
+        <style>
+            #maintenance_box {
+                border-width: 5px;
+                border-style: solid;
+                border-color: rgb(160, 160, 32);
+                background-color: rgb(220, 220, 32);
+                text-align: center;
+            }
+        </style>
+
+        <script>
+            function setMaintenanceTimes() {
+                const now = new Date();
+                const hours = now.getHours();
+                const minutes = now.getMinutes();
+                const seconds = now.getSeconds();
+
+                document.getElementById('maintenance_from')
+                    .innerHTML = `${hours - 2}:${minutes}:${seconds}`;
+
+                document.getElementById('maintenance_to')
+                    .innerHTML = `${hours + 2}:${minutes}:${seconds}`;
+            }
+
+            window.addEventListener('load', setMaintenanceTimes);
+        </script>
+    </head>
+
+    <body>
+        <h2>Maintenance</h2>
+
+        <div id="maintenance_box">
+            <p>
+                Wegen Wartungsarbeiten ist die Website von <span id="maintenance_from">from</span> Uhr bis <span id="maintenance_to">to</span> Uhr nur eingeschränkt verfügbar.
+            </p>
+        </div>
+    </body>
+</html>
