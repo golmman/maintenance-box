@@ -3,13 +3,18 @@
     <head>
         <meta charset=utf-8>
         <style>
-            #maintenance_box {
-                border-width: 5px;
-                border-style: solid;
-                border-color: rgb(160, 160, 32);
-                background-color: rgb(220, 220, 32);
-                text-align: center;
-            }
+#maintenance_box {
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgb(160, 160, 32);
+    background-color: rgb(220, 220, 32);
+    text-align: center;
+    position: fixed;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    z-index: 10000;
+}
         </style>
 
         <script>
@@ -19,11 +24,19 @@
                 const minutes = now.getMinutes();
                 const seconds = now.getSeconds();
 
+                const range = 2;
+
+                const hoursFrom = (hours - range) < 0
+                    ? 24 + hours - range
+                    : hours - range;
+
+                const hoursTo = (hours + range) % 24;
+
                 document.getElementById('maintenance_from')
-                    .innerHTML = `${hours - 2}:${minutes}:${seconds}`;
+                    .innerHTML = `${hoursFrom}:${minutes}:${seconds}`;
 
                 document.getElementById('maintenance_to')
-                    .innerHTML = `${hours + 2}:${minutes}:${seconds}`;
+                    .innerHTML = `${hoursTo}:${minutes}:${seconds}`;
             }
 
             window.addEventListener('load', setMaintenanceTimes);
@@ -31,12 +44,32 @@
     </head>
 
     <body>
-        <h2>Maintenance</h2>
+        <h1>Maintenance</h1>
 
         <div id="maintenance_box">
             <p>
                 Wegen Wartungsarbeiten ist die Website von <span id="maintenance_from">from</span> Uhr bis <span id="maintenance_to">to</span> Uhr nur eingeschränkt verfügbar.
             </p>
         </div>
+
+        <h1>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi convallis dapibus justo eget vulputate. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Sed varius vulputate nulla at pretium. Pellentesque rutrum laoreet quam. Duis ac ex interdum, porta metus ac, lobortis velit. Donec ultricies auctor quam sit amet placerat. Quisque vitae facilisis diam. Ut eget pretium sapien.
+        </h1>
+
+        <h1>
+            Quisque in turpis arcu. Phasellus congue risus sit amet sollicitudin commodo. Cras placerat feugiat dui at pretium. Vivamus at semper libero. Nam sed erat nisl. Aenean eleifend, urna ac rhoncus aliquet, mi mi varius lectus, sed tincidunt mi dui et tortor. Maecenas non ligula urna.
+        </h1>
+
+        <h1>
+            Aenean condimentum purus nec viverra lobortis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque volutpat, turpis sit amet interdum venenatis, leo nulla aliquam orci, laoreet finibus purus lorem et nisi. Donec eu sapien et risus cursus posuere. Proin laoreet interdum finibus. Duis at iaculis ante, non ultricies orci. Pellentesque non metus ut mi ornare blandit. Aenean suscipit tellus non risus elementum, non condimentum nunc facilisis. Duis a tortor maximus, placerat justo eu, interdum risus. Maecenas erat sem, pretium eget sagittis et, ultricies ut orci. Pellentesque et eleifend odio.
+        </h1>
+
+        <h1>
+            Nam consectetur dictum sem vel venenatis. Proin venenatis sagittis ligula, sed accumsan lacus interdum et. Curabitur et pellentesque purus. Phasellus vulputate mauris sed metus pulvinar ultricies. Maecenas sollicitudin auctor placerat. Curabitur neque augue, lobortis ut quam vel, iaculis rutrum orci. Pellentesque sit amet lectus a diam consequat hendrerit. Praesent nibh nisl, ultrices at dolor ac, accumsan ultrices odio.
+        </h1>
+
+        <h1>
+            Donec eu nunc felis. Pellentesque ac eleifend mi. Nulla facilisi. Mauris tempus pellentesque egestas. Donec non urna sed elit tincidunt vestibulum quis varius ipsum. Vestibulum facilisis metus sit amet urna sodales, et facilisis augue maximus. Aliquam id sem vitae nunc ullamcorper tempor. Maecenas mattis purus nec urna tincidunt, sit amet interdum quam pharetra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla hendrerit risus sed sem fringilla, in ornare lectus vulputate. Suspendisse consequat dolor justo, non consequat urna convallis at. Aenean accumsan dapibus porta. 
+        </h1>
     </body>
 </html>
